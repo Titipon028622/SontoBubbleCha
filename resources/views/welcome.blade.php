@@ -40,7 +40,7 @@
 <header id="header" class="fixed-top d-flex align-items-cente">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
 
-        <h1 class="logo me-auto me-lg-0"><a href="http://127.0.0.1:8000/">Sonto Bubble Cha</a></h1>
+        <h1 class="logo me-auto me-lg-0"><a href="/">Sonto Bubble Cha</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="bad/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -54,22 +54,25 @@
                 <li><a class="nav-link scrollto" href="#gallery">ผู้จัดทำ</a></li>
                 <li class="dropdown"><a href="#"><span>กลับไปหน้าแรก</span> </a></li>
             </ul>
+            <ul>
+                @if (Route::has('login'))
+                    @auth
+                       <a href="{{ url('/home') }}" style="color: #cda45e">Profile</a>
+
+                    @else
+
+                       <a href="{{ route('login') }}" style="color: #cda45e">Login</a>
+
+                        @if (Route::has('register'))
+                          <a href="{{ route('register') }}" style="color: #cda45e">Register</a>
+                        @endif
+                    @endauth
+
+                @endif
+            </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
-        @if (Route::has('login'))
-            @auth
-                <li> <a href="{{ url('/home') }}">Profile</a> </li>
 
-            @else
-
-                <li><a href="{{ route('login') }}">Login</a></li>
-
-                @if (Route::has('register'))
-                    <li><a href="{{ route('register') }}">Register</a></li>
-                @endif
-            @endauth
-
-        @endif
 
     </div>
 </header><!-- End Header -->
@@ -155,9 +158,12 @@
 
                     <div class="col-lg-12 d-flex justify-content-center">
                         <ul id="menu-flters">
-                            <li class="filter-active" style="padding-right: 10px; border: 2px solid #cda45e; border-radius: 50px; padding: 8px 15px;"> <a href="http://127.0.0.1:8000/"> ทั้งหมด</a></li>
+                            <li class="filter-active"
+                                style="padding-right: 10px; border: 2px solid #cda45e; border-radius: 50px; padding: 8px 15px;">
+                                <a href="http://127.0.0.1:8000/"> ทั้งหมด</a></li>
                             @foreach ($category as $categories)
-                                <a href="{{ url('/product/category/' . $categories->id_type) }}" style="padding-right: 10px; border: 2px solid #cda45e; border-radius: 50px; padding: 8px 15px;">{{ $categories->typename }}</a>
+                                <a href="{{ url('/product/category/' . $categories->id_type) }}"
+                                    style="padding-right: 10px; border: 2px solid #cda45e; border-radius: 50px; padding: 8px 15px;">{{ $categories->typename }}</a>
                             @endforeach
                         </ul>
                     </div>

@@ -20,7 +20,7 @@
                         <p><strong>Email : </strong>{{Auth::user() ->email}}</p>
                         <p><strong>Created At : </strong>{{Auth::user() ->created_at}}</p>
                         <p>
-                            @if (Auth::user()->chaeckIsAdmin())
+                            @if (Auth::user()->checkIsAdmin())
                             <a href="{{route('index')}}" class="btn btn-primary">Product Management</a>
                             @endif
 
