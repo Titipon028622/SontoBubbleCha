@@ -19,3 +19,6 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/product',[\App\Http\Controllers\Api\ProductApiController::class, 'index'] );
+
+
+Route::get('/category',[\App\Http\Controllers\Api\CategoryApiController::class, 'index'] );
