@@ -40,7 +40,7 @@
 <header id="header" class="fixed-top d-flex align-items-cente">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
 
-        <h1 class="logo me-auto me-lg-0"><a href="http://127.0.0.1:8000/">Sonto Bubble Cha</a></h1>
+        <h1 class="logo me-auto me-lg-0"><a href="/">Sonto Bubble Cha</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="bad/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -158,7 +158,7 @@
 
                     <div class="col-lg-12 d-flex justify-content-center">
                         <ul id="menu-flters">
-                                <a href="http://127.0.0.1:8000/" style="border: 2px solid #cda45e; border-radius: 50px; padding: 8px 15px;">ทั้งหมด</a>
+                                <a href="/" style="border: 2px solid #cda45e; border-radius: 50px; padding: 8px 15px;">ทั้งหมด</a>
                             @foreach ($category as $categories)
                                 <a href="{{ url('/product/category/' . $categories->id_type) }}"
                                     style="padding-right: 10px; border: 2px solid #cda45e; border-radius: 50px; padding: 8px 15px;">{{ $categories->typename }}</a>
